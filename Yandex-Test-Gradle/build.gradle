@@ -20,7 +20,9 @@ compileTestJava {
 dependencies {
     implementation("io.github.bonigarcia:webdrivermanager:5.4.1")
     implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-   implementation 'junit:junit:4.13.1'
+   implementation 'junit:junit-dep:4.5'
+    implementation(platform('org.junit:junit-bom:5.9.3'))
+   implementation('org.junit.jupiter:junit-jupiter')
 
 
     implementation 'org.seleniumhq.selenium:selenium-java:3.14.0'

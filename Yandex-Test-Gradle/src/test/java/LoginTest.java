@@ -1,7 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
@@ -17,11 +17,11 @@ public class LoginTest {
     /**
      * осуществление первоначальной настройки
      */
-    @BeforeClass
+    @BeforeAll
     public static void setup() {
         //определение пути до драйвера и его настройка
-      //  System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
-        WebDriverManager.chromedriver().setup();
+    //   System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
+       WebDriverManager.chromedriver().setup();
         //создание экземпляра драйвера
         driver = new ChromeDriver();
         loginPage = new LoginPage(driver);
@@ -55,7 +55,7 @@ public class LoginTest {
     /**
      * осуществление выхода из аккаунта с последующим закрытием окна браузера
      */
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         profilePage.entryMenu();
         profilePage.userLogout();
