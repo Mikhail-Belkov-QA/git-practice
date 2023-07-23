@@ -1,6 +1,8 @@
 package test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,7 +27,7 @@ public class LoginYandexTest {
     public static void setup() {
         //определение пути до драйвера и его настройка
        //    System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
-       // SelenideLogger.addListener("allure", new AllureSelenide());
+        SelenideLogger.addListener("allure", new AllureSelenide());
         WebDriverManager.chromedriver().setup();
         //создание экземпляра драйвера
         driver = new ChromeDriver();
