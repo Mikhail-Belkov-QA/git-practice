@@ -1,0 +1,4 @@
+test\ConfProperties.class
+test\LoginYandexTest.class
+pages\LoginPage.class
+pages\ProfilePage.class
