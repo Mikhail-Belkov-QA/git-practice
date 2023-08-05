@@ -24,7 +24,7 @@ public class ReqresTest {
     private final static String URL = "https://reqres.in/";
 
     @Test
-    @DisplayName("Метод GET - убедиждаемся , что пользователи содержат аватары")
+    @DisplayName("Метод GET - убеждаемся , что пользователи содержат аватары")
     public void checkAvatarAndIdTest (){
         Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecOK200());
         List<UserData> users = given()
