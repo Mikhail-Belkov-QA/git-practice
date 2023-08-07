@@ -35,9 +35,9 @@ public class ProfilePage {
     public String getUserName() {
         String userName = userMenu.getText();
         return userName; }
-    public String getUserId() {
-        String userName = userId.getText();
-        return userName; }
+   public String getUserId() {
+        String userIdText = userId.getText();
+        return userIdText; }
     /**
      * метод для нажатия кнопки меню пользователя
      */

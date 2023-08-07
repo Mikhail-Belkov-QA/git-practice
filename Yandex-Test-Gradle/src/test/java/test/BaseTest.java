@@ -4,6 +4,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
@@ -31,7 +32,6 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         //создание экземпляра драйвера
         driver = new ChromeDriver();
-
         loginPage = new LoginPage(driver);
         profilePage = new ProfilePage(driver);
         //окно разворачивается на полный экран
@@ -42,7 +42,12 @@ public class BaseTest {
         step ("Открываем стартовую страницу", () ->
         {     driver.get(ConfProperties.getProperty("loginpage"));});
 
+          //Нажатие на кнопку Email
+        step ("Нажимаем на кнопку Email", () ->
+        { BaseTest.loginPage.inputLoginEmailBtn();});
+
         }
+
     /**
      * осуществление выхода из аккаунта с последующим закрытием окна браузера
      */
@@ -51,6 +56,11 @@ public class BaseTest {
     public static void tearDown() {
         step ("Заходим в iFrame menu", () ->
         {     profilePage.entryMenu();});
+
+        step ("Получаем отображаемый логин и сравниваем его с логином из файлов настройки", () ->
+        {   String user = BaseTest.profilePage.getUserId();
+            Assert.assertEquals(test.ConfProperties.getProperty("login"), user); });
+
         step ("Нажимаем на кнопку Выход", () ->
         {     profilePage.userLogout();});
         driver.quit();

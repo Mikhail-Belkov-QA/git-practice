@@ -15,6 +15,9 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver; }
+    @FindBy(xpath = "//*[contains(@data-t, 'button:default')]")
+    private WebElement loginEmail;
+//button[@data-t = 'button:default']"
     /**
      * определение локатора поля ввода логина
      */
@@ -33,6 +36,9 @@ public class LoginPage {
     /**
      * метод для ввода логина
      */
+    @Step ("Нажатие на кнопку Email")
+    public void inputLoginEmailBtn() {
+        loginEmail.click(); }
    @Step ("Ввод логина")
    public void inputLogin(String login) {
         loginField.sendKeys(login); }

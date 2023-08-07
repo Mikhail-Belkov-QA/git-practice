@@ -20,6 +20,8 @@ public class LoginYandexTest extends BaseTest {
         //получение доступа к методам класса LoginPage для взаимодействия с элементами страницы
         //значение login/password берутся из файла настроек по аналогии с chromedriver
         //и loginpage
+
+
         //вводим логин
         step ("Задать логин", () ->
      { BaseTest.loginPage.inputLogin(ConfProperties.getProperty("login"));});
@@ -30,19 +32,11 @@ public class LoginYandexTest extends BaseTest {
         step ("Задать пароль", () ->
         {  BaseTest.loginPage.inputPasswd(ConfProperties.getProperty("password"));});
 
-
         //нажимаем кнопку входа
         step ("Нажать на кнопку", () ->
         {   BaseTest.loginPage.clickLoginBtn();});
 
-        //получаем отображаемый логин
-       /* step ("Получаем отображаемый логин", () ->
-        {    });*/
-       /* String user = BaseTest.profilePage.getUserName();
-        Assert.assertEquals(test.ConfProperties.getProperty("login"), user);*/
-        //и сравниваем его с логином из файла настроек
-      /*  String user2 = BaseTest.profilePage.getUserId();
-         Assert.assertEquals(test.ConfProperties.getProperty("login"), user2);*/
+
     }
     }
 
