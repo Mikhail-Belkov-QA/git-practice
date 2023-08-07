@@ -14,14 +14,13 @@ public class LoginYandexTest extends BaseTest {
      * тестовый метод для осуществления аутентификации
      */
     @Test
+    @DisplayName("Мой тест - авторизация аккаунта Яндекс (по почте)")
    @Step ("Ввод логина")
 
     public void loginTest() {
         //получение доступа к методам класса LoginPage для взаимодействия с элементами страницы
         //значение login/password берутся из файла настроек по аналогии с chromedriver
         //и loginpage
-
-
         //вводим логин
         step ("Задать логин", () ->
      { BaseTest.loginPage.inputLogin(ConfProperties.getProperty("login"));});
